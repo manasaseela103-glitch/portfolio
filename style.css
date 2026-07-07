@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S. Manasa | Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!--================ NAVBAR ================-->
+
+    <header>
+        <nav class="navbar">
+
+            <h2 class="logo">S. Manasa</h2>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certificates</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+
+        </nav>
+    </header>
+
+    <!--================ HOME ================-->
+
+    <section id="home" class="home">
+
+        <div class="home-content">
+
+            <h3>Hello, I'm</h3>
+
+            <h1>S. Manasa</h1>
+
+            <h2>
+                <span id="typing"></span>
+            </h2>
+
+            <p>
+                Passionate Computer Science student with an interest in
+                software development, web technologies, programming,
+                and problem solving. I enjoy learning new technologies,
+                participating in hackathons, and building practical projects.
+            </p>
+
+            <div class="buttons">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#" class="btn btn2">Download Resume</a>
+            </div>
+
+        </div>
+
+        <div class="home-image">
+
+            <img src="images/profile.jpg" alt="Profile Picture">
+
+        </div>
+
+    </section>
+
+    <!--================ ABOUT ================-->
+
+    <section id="about">
+
+        <h2 class="heading">About Me</h2>
+
+        <div class="about-container">
+
+            <p>
+
+                I am <strong>S. Manasa</strong>, currently pursuing my
+                B.Tech (Computer Science & Engineering) at
+                <strong>Gouthami Institute of Technology and Management for Women</strong>.
+
+                I have a strong interest in Programming,
+                Web Development, Data Structures, and Object-Oriented Programming.
+                I enjoy solving coding problems, participating in hackathons,
+                and continuously improving my technical skills.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!--================ EDUCATION ================-->
+
+    <section id="education">
+
+        <h2 class="heading">Education</h2>
+
+        <div class="education-container">
+
+            <div class="edu-card">
+
+                <h3>B.Tech (Computer Science & Engineering)</h3>
+
+                <p>Gouthami Institute of Technology and Management for Women</p>
+
+                <span>2024 – 2028</span>
+
+            </div>
+
+            <div class="edu-card">
+
+                <h3>Intermediate (MPC)</h3>
+
+                <p>Vijaya Krishna Junior College</p>
+
+                <span>2022 – 2024</span>
+
+            </div>
+
+            <div class="edu-card">
+
+                <h3>SSC</h3>
+
+                <p>Fathima English Medium High School</p>
+
+                <span>Completed</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ SKILLS ================-->
+
+    <section id="skills">
+
+        <h2 class="heading">Technical Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+
+                <h3>Programming</h3>
+
+                <ul>
+                    <li>Python</li>
+                    <li>C</li>
+                    <li>Java</li>
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>Web Development</h3>
+
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>Database</h3>
+
+                <ul>
+                    <li>MySQL</li>
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>Tools</h3>
+
+                <ul>
+                    <li>VS Code</li>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>Core Subjects</h3>
+
+                <ul>
+                    <li>Object-Oriented Programming</li>
+                    <li>Data Structures</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ CERTIFICATIONS ================-->
+
+    <section id="certifications">
+
+        <h2 class="heading">Certifications</h2>
+
+        <div class="certificate-container">
+
+            <div class="certificate-card">
+                Python Programming Certification
+            </div>
+
+            <div class="certificate-card">
+                HackerRank Problem Solving Participation
+            </div>
+
+            <div class="certificate-card">
+                Hackathon Participation
+            </div>
+
+            <div class="certificate-card">
+                PowerPoint Presentation Competition
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ ACHIEVEMENTS ================-->
+
+    <section id="achievements">
+
+        <h2 class="heading">Achievements</h2>
+
+        <div class="achievement-container">
+
+            <div class="achievement-card">
+                Participated in Hackathons
+            </div>
+
+            <div class="achievement-card">
+                HackerRank Coding Practice
+            </div>
+
+            <div class="achievement-card">
+                Presentation Competitions
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ SOFT SKILLS ================-->
+
+    <section id="softskills">
+
+        <h2 class="heading">Soft Skills</h2>
+
+        <div class="soft-container">
+
+            <div class="soft-card">Communication</div>
+            <div class="soft-card">Problem Solving</div>
+            <div class="soft-card">Team Collaboration</div>
+            <div class="soft-card">Adaptability</div>
+
+        </div>
+
+    </section>
+
+    <!--================ CONTACT ================-->
+
+    <section id="contact">
+
+        <h2 class="heading">Contact Me</h2>
+
+        <div class="contact-container">
+
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>manasaseela103@gmail.com</span>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>9849660458</span>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-location-dot"></i>
+                <span>Badvel, Andhra Pradesh</span>
+            </div>
+
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="#" target="_blank">
+                    LinkedIn Profile
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ FOOTER ================-->
+
+    <footer>
+
+        <p>
+
+            © 2026 S. Manasa | All Rights Reserved
+
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+    
