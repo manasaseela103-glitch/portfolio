@@ -1,339 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S. Manasa | Portfolio</title>
+// ===============================
+// Typing Effect
+// ===============================
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+const text = [
+    "B.Tech CSE Student",
+    "Python Developer",
+    "Web Developer",
+    "Problem Solver",
+    "Tech Enthusiast"
+];
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-</head>
+const typingElement = document.getElementById("typing");
 
-<body>
+function typeEffect() {
 
-    <!--================ NAVBAR ================-->
+    if (!typingElement) return;
 
-    <header>
-        <nav class="navbar">
+    const currentText = text[textIndex];
 
-            <h2 class="logo">S. Manasa</h2>
+    if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, charIndex--);
+    } else {
+        typingElement.textContent = currentText.substring(0, charIndex++);
+    }
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certificates</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    let speed = isDeleting ? 70 : 120;
 
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+    if (!isDeleting && charIndex === currentText.length + 1) {
+        speed = 1800;
+        isDeleting = true;
+    }
 
-        </nav>
-    </header>
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % text.length;
+    }
 
-    <!--================ HOME ================-->
+    setTimeout(typeEffect, speed);
+}
 
-    <section id="home" class="home">
+typeEffect();
 
-        <div class="home-content">
 
-            <h3>Hello, I'm</h3>
+// ===============================
+// Mobile Menu
+// ===============================
 
-            <h1>S. Manasa</h1>
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
 
-            <h2>
-                <span id="typing"></span>
-            </h2>
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
 
-            <p>
-                Passionate Computer Science student with an interest in
-                software development, web technologies, programming,
-                and problem solving. I enjoy learning new technologies,
-                participating in hackathons, and building practical projects.
-            </p>
 
-            <div class="buttons">
-                <a href="#contact" class="btn">Contact Me</a>
-                <a href="#" class="btn btn2">Download Resume</a>
-            </div>
+// Close menu after clicking a link
 
-        </div>
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-        <div class="home-image">
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
 
-            <img src="images/profile.jpg" alt="Profile Picture">
+});
 
-        </div>
 
-    </section>
+// ===============================
+// Scroll Reveal Animation
+// ===============================
 
-    <!--================ ABOUT ================-->
+const revealElements = document.querySelectorAll(
+    "section, .edu-card, .skill-card, .certificate-card, .achievement-card, .soft-card"
+);
 
-    <section id="about">
+revealElements.forEach(el => {
+    el.classList.add("reveal");
+});
 
-        <h2 class="heading">About Me</h2>
+window.addEventListener("scroll", revealOnScroll);
 
-        <div class="about-container">
+function revealOnScroll() {
 
-            <p>
+    const windowHeight = window.innerHeight;
 
-                I am <strong>S. Manasa</strong>, currently pursuing my
-                B.Tech (Computer Science & Engineering) at
-                <strong>Gouthami Institute of Technology and Management for Women</strong>.
+    revealElements.forEach(el => {
 
-                I have a strong interest in Programming,
-                Web Development, Data Structures, and Object-Oriented Programming.
-                I enjoy solving coding problems, participating in hackathons,
-                and continuously improving my technical skills.
+        const top = el.getBoundingClientRect().top;
 
-            </p>
+        if (top < windowHeight - 100) {
+            el.classList.add("active");
+        }
 
-        </div>
+    });
 
-    </section>
+}
 
-    <!--================ EDUCATION ================-->
+revealOnScroll();
 
-    <section id="education">
 
-        <h2 class="heading">Education</h2>
+// ===============================
+// Active Navigation Highlight
+// ===============================
 
-        <div class="education-container">
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
 
-            <div class="edu-card">
+window.addEventListener("scroll", () => {
 
-                <h3>B.Tech (Computer Science & Engineering)</h3>
+    let current = "";
 
-                <p>Gouthami Institute of Technology and Management for Women</p>
+    sections.forEach(section => {
 
-                <span>2024 – 2028</span>
+        const sectionTop = section.offsetTop - 150;
 
-            </div>
+        if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+        }
 
-            <div class="edu-card">
+    });
 
-                <h3>Intermediate (MPC)</h3>
+    navItems.forEach(link => {
 
-                <p>Vijaya Krishna Junior College</p>
+        link.classList.remove("active");
 
-                <span>2022 – 2024</span>
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
 
-            </div>
+    });
 
-            <div class="edu-card">
+});
 
-                <h3>SSC</h3>
 
-                <p>Fathima English Medium High School</p>
+// ===============================
+// Smooth Scroll
+// ===============================
 
-                <span>Completed</span>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-            </div>
+    anchor.addEventListener("click", function (e) {
 
-        </div>
+        e.preventDefault();
 
-    </section>
+        const target = document.querySelector(this.getAttribute("href"));
 
-    <!--================ SKILLS ================-->
+        if (target) {
 
-    <section id="skills">
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
 
-        <h2 class="heading">Technical Skills</h2>
+        }
 
-        <div class="skills-container">
+    });
 
-            <div class="skill-card">
+});
 
-                <h3>Programming</h3>
 
-                <ul>
-                    <li>Python</li>
-                    <li>C</li>
-                    <li>Java</li>
-                </ul>
+// ===============================
+// Navbar Shadow on Scroll
+// ===============================
 
-            </div>
+const header = document.querySelector("header");
 
-            <div class="skill-card">
+window.addEventListener("scroll", () => {
 
-                <h3>Web Development</h3>
+    if (window.scrollY > 50) {
 
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                </ul>
+        header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.4)";
 
-            </div>
+    } else {
 
-            <div class="skill-card">
+        header.style.boxShadow = "none";
 
-                <h3>Database</h3>
+    }
 
-                <ul>
-                    <li>MySQL</li>
-                </ul>
+});
 
-            </div>
 
-            <div class="skill-card">
+// ===============================
+// Footer Year
+// ===============================
 
-                <h3>Tools</h3>
+const footer = document.querySelector("footer p");
 
-                <ul>
-                    <li>VS Code</li>
-                    <li>Git</li>
-                    <li>GitHub</li>
-                </ul>
-
-            </div>
-
-            <div class="skill-card">
-
-                <h3>Core Subjects</h3>
-
-                <ul>
-                    <li>Object-Oriented Programming</li>
-                    <li>Data Structures</li>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!--================ CERTIFICATIONS ================-->
-
-    <section id="certifications">
-
-        <h2 class="heading">Certifications</h2>
-
-        <div class="certificate-container">
-
-            <div class="certificate-card">
-                Python Programming Certification
-            </div>
-
-            <div class="certificate-card">
-                HackerRank Problem Solving Participation
-            </div>
-
-            <div class="certificate-card">
-                Hackathon Participation
-            </div>
-
-            <div class="certificate-card">
-                PowerPoint Presentation Competition
-            </div>
-
-        </div>
-
-    </section>
-
-    <!--================ ACHIEVEMENTS ================-->
-
-    <section id="achievements">
-
-        <h2 class="heading">Achievements</h2>
-
-        <div class="achievement-container">
-
-            <div class="achievement-card">
-                Participated in Hackathons
-            </div>
-
-            <div class="achievement-card">
-                HackerRank Coding Practice
-            </div>
-
-            <div class="achievement-card">
-                Presentation Competitions
-            </div>
-
-        </div>
-
-    </section>
-
-    <!--================ SOFT SKILLS ================-->
-
-    <section id="softskills">
-
-        <h2 class="heading">Soft Skills</h2>
-
-        <div class="soft-container">
-
-            <div class="soft-card">Communication</div>
-            <div class="soft-card">Problem Solving</div>
-            <div class="soft-card">Team Collaboration</div>
-            <div class="soft-card">Adaptability</div>
-
-        </div>
-
-    </section>
-
-    <!--================ CONTACT ================-->
-
-    <section id="contact">
-
-        <h2 class="heading">Contact Me</h2>
-
-        <div class="contact-container">
-
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <span>manasaseela103@gmail.com</span>
-            </div>
-
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <span>9849660458</span>
-            </div>
-
-            <div class="contact-item">
-                <i class="fas fa-location-dot"></i>
-                <span>Badvel, Andhra Pradesh</span>
-            </div>
-
-            <div class="contact-item">
-                <i class="fab fa-linkedin"></i>
-                <a href="#" target="_blank">
-                    LinkedIn Profile
-                </a>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!--================ FOOTER ================-->
-
-    <footer>
-
-        <p>
-
-            © 2026 S. Manasa | All Rights Reserved
-
-        </p>
-
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-
-</body>
-</html>
-
-    
+if (footer) {
+    footer.innerHTML =
+        `© ${new Date().getFullYear()} S. Manasa | All Rights Reserved`;
+}
